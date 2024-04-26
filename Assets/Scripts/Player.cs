@@ -21,6 +21,10 @@ public class Player : MonoBehaviour
     public TMP_Text dialogTwoText;
     public TMP_Text dialogThreeText;
 
+    public TMP_Text partsText;
+
+    private bool talkedToFriend;
+
 
 
     void Start()
@@ -29,6 +33,7 @@ public class Player : MonoBehaviour
         rb.freezeRotation = true;
         isInteracting = false;
         dialogNumber = 1;
+        talkedToFriend = false;
         
     }
 
@@ -67,6 +72,8 @@ public class Player : MonoBehaviour
 
         if(Vector3.Distance(transform.position, friend.transform.position) <= interactDistance)
         {
+            partsText.gameObject.SetActive(false);
+
             if (isInteracting)
             {
                 if(Input.GetKeyDown(KeyCode.F))
@@ -93,6 +100,7 @@ public class Player : MonoBehaviour
                     dialogThreeText.gameObject.SetActive(false);
                     isInteracting = false;
                     dialogNumber = 1;
+                    talkedToFriend = true;
                 }
             }
             else 
@@ -112,6 +120,10 @@ public class Player : MonoBehaviour
             dialogTwoText.gameObject.SetActive(false);
             dialogThreeText.gameObject.SetActive(false);
             dialogNumber = 1;
+            if (talkedToFriend)
+            {
+                partsText.gameObject.SetActive(true);
+            }
         }
     }
 }
