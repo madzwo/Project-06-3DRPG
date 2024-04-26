@@ -4,33 +4,50 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public Rigidbody rb;
-    public Transform orientation;
+    Rigidbody rb;
     Vector3 moveDirection;
     public float moveSpeed;
-    float horizontalInput;
-    float verticalInput;
-
+    public float turnSpeed;
+    private bool isMoving;
 
     void Start()
     {
+        rb = GetComponent<Rigidbody>();
+        rb.freezeRotation = true;
         
     }
 
     void Update()
     {
-        horizontalInput = Input.GetAxisRaw("Horizontal");
-        verticalInput = Input.GetAxisRaw("Vertical");
-
-        moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
-        rb.AddForce(moveDirection.normalized * moveSpeed, ForceMode.Force);
-
-        if (moveDirection != Vector3.zero)
+        if(Input.GetKey(KeyCode.W))
         {
-            Quaternion targetRotation = Quaternion.LookRotation(moveDirection, Vector3.up);
-            transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, Time.deltaTime * 10f);
+            Vector3 moveDirection = transform.forward * moveSpeed;
+            rb.AddForce(moveDirection);
+            isMoving = true;
+        }
+        else if(Input.GetKey(KeyCode.S))
+        {
+            Vector3 moveDirection = -transform.forward * moveSpeed;
+            rb.AddForce(moveDirection);
+            isMoving = true;
+        } 
+        else 
+        {
+            isMoving = false;
         }
 
-
+        if (isMoving)
+        {         
+            if (Input.GetKey(KeyCode.A))
+            {
+                float rotationAmount = turnSpeed * Time.deltaTime;
+                rb.MoveRotation(rb.rotation * Quaternion.Euler(0f, -rotationAmount, 0f));
+            }
+            if (Input.GetKey(KeyCode.D))
+            {
+                float rotationAmount = turnSpeed * Time.deltaTime;
+                rb.MoveRotation(rb.rotation * Quaternion.Euler(0f, rotationAmount, 0f));
+            }
+        }
     }
 }
