@@ -13,9 +13,10 @@ GameObject:
   - component: {fileID: 8292616637863936179}
   - component: {fileID: 3035754037740775008}
   - component: {fileID: 6743896089569756466}
+  - component: {fileID: -7723555398870337576}
   m_Layer: 0
   m_Name: PlayerBullet
-  m_TagString: Untagged
+  m_TagString: playerBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -133,3 +134,15 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &-7723555398870337576
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6672707035758636578}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56a86ae903ae24ea18c8040d6241c605, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

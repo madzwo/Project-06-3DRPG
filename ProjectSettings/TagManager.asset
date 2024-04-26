@@ -8,6 +8,7 @@ TagManager:
   - player
   - friend
   - enemy
+  - playerBullet
   layers:
   - Default
   - TransparentFX
