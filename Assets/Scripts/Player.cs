@@ -14,12 +14,21 @@ public class Player : MonoBehaviour
     public GameObject friend;
     public TMP_Text interactText;
     public float interactDistance;
+    public bool isInteracting;
+
+    private int dialogNumber;
+    public TMP_Text dialogOneText;
+    public TMP_Text dialogTwoText;
+    public TMP_Text dialogThreeText;
+
 
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
+        isInteracting = false;
+        dialogNumber = 1;
         
     }
 
@@ -56,13 +65,54 @@ public class Player : MonoBehaviour
             }
         }
 
-        if(Vector3.Distance(transform.position, friend.transform.position) <= interactDistance)
+        if (isInteracting)
         {
-            interactText.gameObject.SetActive(true);
+            if(Vector3.Distance(transform.position, friend.transform.position) <= interactDistance)
+            {
+                if(Input.GetKeyDown(KeyCode.F))
+                {
+                    dialogNumber++;
+                }
+                if(dialogNumber == 1)
+                {
+                    interactText.gameObject.SetActive(false);
+                    dialogOneText.gameObject.SetActive(true);
+                }
+                if(dialogNumber == 2)
+                {
+                    dialogOneText.gameObject.SetActive(false);
+                    dialogTwoText.gameObject.SetActive(true);
+                }
+                if(dialogNumber == 3)
+                {
+                    dialogTwoText.gameObject.SetActive(false);
+                    dialogThreeText.gameObject.SetActive(true);
+                }
+                if(dialogNumber == 4)
+                {
+                    dialogThreeText.gameObject.SetActive(false);
+                    isInteracting = false;
+                }
+            }
+            else
+            {
+                isInteracting = false;
+            }
         }
-        else
+        else 
         {
-            interactText.gameObject.SetActive(false);
+            if(Vector3.Distance(transform.position, friend.transform.position) <= interactDistance)
+            {
+                interactText.gameObject.SetActive(true);
+                if(Input.GetKeyDown(KeyCode.F))
+                {
+                    isInteracting = true;
+                }
+            }
+            else
+            {
+                interactText.gameObject.SetActive(false);
+            }
         }
     }
 }
