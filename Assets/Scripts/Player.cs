@@ -65,9 +65,9 @@ public class Player : MonoBehaviour
             }
         }
 
-        if (isInteracting)
+        if(Vector3.Distance(transform.position, friend.transform.position) <= interactDistance)
         {
-            if(Vector3.Distance(transform.position, friend.transform.position) <= interactDistance)
+            if (isInteracting)
             {
                 if(Input.GetKeyDown(KeyCode.F))
                 {
@@ -92,16 +92,10 @@ public class Player : MonoBehaviour
                 {
                     dialogThreeText.gameObject.SetActive(false);
                     isInteracting = false;
+                    dialogNumber = 1;
                 }
             }
-            else
-            {
-                isInteracting = false;
-            }
-        }
-        else 
-        {
-            if(Vector3.Distance(transform.position, friend.transform.position) <= interactDistance)
+            else 
             {
                 interactText.gameObject.SetActive(true);
                 if(Input.GetKeyDown(KeyCode.F))
@@ -109,10 +103,15 @@ public class Player : MonoBehaviour
                     isInteracting = true;
                 }
             }
-            else
-            {
-                interactText.gameObject.SetActive(false);
-            }
+        }
+        else
+        {
+            isInteracting = false;
+            interactText.gameObject.SetActive(false);
+            dialogOneText.gameObject.SetActive(false);
+            dialogTwoText.gameObject.SetActive(false);
+            dialogThreeText.gameObject.SetActive(false);
+            dialogNumber = 1;
         }
     }
 }
