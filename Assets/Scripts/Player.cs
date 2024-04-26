@@ -27,7 +27,7 @@ public class Player : MonoBehaviour
         }
         else if(Input.GetKey(KeyCode.S))
         {
-            Vector3 moveDirection = -transform.forward * moveSpeed;
+            Vector3 moveDirection = -transform.forward * (moveSpeed * 0.6f);
             rb.AddForce(moveDirection);
             isMoving = true;
         } 
