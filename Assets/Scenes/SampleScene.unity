@@ -2002,18 +2002,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2085379026}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2099786513 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6880895076233144323, guid: b3e0e5186daec4b28b0e3176d6c7199f,
-    type: 3}
-  m_PrefabInstance: {fileID: 5701327274220120388}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &251152282475160444
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2221,18 +2209,23 @@ PrefabInstance:
       objectReference: {fileID: 1027310408}
     - target: {fileID: 6383657746725768850, guid: b3e0e5186daec4b28b0e3176d6c7199f,
         type: 3}
-      propertyPath: partsText
-      value: 
-      objectReference: {fileID: 2099786513}
+      propertyPath: fireRate
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6383657746725768850, guid: b3e0e5186daec4b28b0e3176d6c7199f,
+        type: 3}
+      propertyPath: moveSpeed
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 6383657746725768850, guid: b3e0e5186daec4b28b0e3176d6c7199f,
+        type: 3}
+      propertyPath: bulletSpeed
+      value: 1250
+      objectReference: {fileID: 0}
     - target: {fileID: 7114084558336493353, guid: b3e0e5186daec4b28b0e3176d6c7199f,
         type: 3}
       propertyPath: m_Name
       value: Robot
-      objectReference: {fileID: 0}
-    - target: {fileID: 9080098959871467869, guid: b3e0e5186daec4b28b0e3176d6c7199f,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

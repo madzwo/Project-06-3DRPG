@@ -25,6 +25,11 @@ public class Player : MonoBehaviour
 
     private bool talkedToFriend;
 
+    public GameObject bulletPrefab;
+    public Transform firePoint;
+    public float bulletSpeed;
+    public float fireRate;
+    private float timeTillFire;
 
 
     void Start()
@@ -34,10 +39,16 @@ public class Player : MonoBehaviour
         isInteracting = false;
         dialogNumber = 1;
         talkedToFriend = false;
-        
+        timeTillFire = fireRate;
     }
 
     void Update()
+    {
+        Movement();       
+        Fire();
+    }
+
+    public void Movement()
     {
         if(Input.GetKey(KeyCode.W))
         {
@@ -76,6 +87,12 @@ public class Player : MonoBehaviour
 
             if (isInteracting)
             {
+                Vector3 direction = transform.position - friend.transform.position;
+                if (direction != Vector3.zero)
+                {
+                    friend.transform.rotation = Quaternion.LookRotation(direction);
+                }
+
                 if(Input.GetKeyDown(KeyCode.F))
                 {
                     dialogNumber++;
@@ -125,5 +142,20 @@ public class Player : MonoBehaviour
                 partsText.gameObject.SetActive(true);
             }
         }
+    }
+
+    public void Fire() 
+    {
+        if(timeTillFire <= 0)
+        {
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+                bullet.GetComponent<Rigidbody>().AddForce(firePoint.forward * bulletSpeed, ForceMode.Force);
+                timeTillFire = fireRate;
+            }
+        }
+        timeTillFire -= Time.deltaTime;
+         
     }
 }
