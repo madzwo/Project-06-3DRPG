@@ -16,7 +16,7 @@ PrefabInstance:
     - target: {fileID: 1144976787523794467, guid: b3e0e5186daec4b28b0e3176d6c7199f,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 13.46
+      value: -1.2627563
       objectReference: {fileID: 0}
     - target: {fileID: 1144976787523794467, guid: b3e0e5186daec4b28b0e3176d6c7199f,
         type: 3}
@@ -26,27 +26,27 @@ PrefabInstance:
     - target: {fileID: 1144976787523794467, guid: b3e0e5186daec4b28b0e3176d6c7199f,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 14.63
+      value: 20.036566
       objectReference: {fileID: 0}
     - target: {fileID: 1144976787523794467, guid: b3e0e5186daec4b28b0e3176d6c7199f,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.3420201
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1144976787523794467, guid: b3e0e5186daec4b28b0e3176d6c7199f,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1144976787523794467, guid: b3e0e5186daec4b28b0e3176d6c7199f,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.9396927
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1144976787523794467, guid: b3e0e5186daec4b28b0e3176d6c7199f,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1144976787523794467, guid: b3e0e5186daec4b28b0e3176d6c7199f,
         type: 3}
@@ -56,7 +56,7 @@ PrefabInstance:
     - target: {fileID: 1144976787523794467, guid: b3e0e5186daec4b28b0e3176d6c7199f,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 220
+      value: 180
       objectReference: {fileID: 0}
     - target: {fileID: 1144976787523794467, guid: b3e0e5186daec4b28b0e3176d6c7199f,
         type: 3}
@@ -96,7 +96,7 @@ PrefabInstance:
     - target: {fileID: 7114084558336493353, guid: b3e0e5186daec4b28b0e3176d6c7199f,
         type: 3}
       propertyPath: m_TagString
-      value: friend
+      value: enemy
       objectReference: {fileID: 0}
     - target: {fileID: 8142141903302241172, guid: b3e0e5186daec4b28b0e3176d6c7199f,
         type: 3}

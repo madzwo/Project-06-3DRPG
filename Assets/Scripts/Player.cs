@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class Player : MonoBehaviour
 {
@@ -9,6 +10,11 @@ public class Player : MonoBehaviour
     public float moveSpeed;
     public float turnSpeed;
     private bool isMoving;
+
+    public GameObject friend;
+    public TMP_Text interactText;
+    public float interactDistance;
+
 
     void Start()
     {
@@ -48,6 +54,15 @@ public class Player : MonoBehaviour
                 float rotationAmount = turnSpeed * Time.deltaTime;
                 rb.MoveRotation(rb.rotation * Quaternion.Euler(0f, rotationAmount, 0f));
             }
+        }
+
+        if(Vector3.Distance(transform.position, friend.transform.position) <= interactDistance)
+        {
+            interactText.gameObject.SetActive(true);
+        }
+        else
+        {
+            interactText.gameObject.SetActive(false);
         }
     }
 }

@@ -7,6 +7,7 @@ TagManager:
   - CinemachineTarget
   - player
   - friend
+  - enemy
   layers:
   - Default
   - TransparentFX
