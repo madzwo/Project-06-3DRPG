@@ -38,6 +38,11 @@ public class Player : MonoBehaviour
 
     private bool hasWon;
 
+    public GameObject friendArm;
+    public GameObject friendWheel;
+    public GameObject friendEye;
+
+
 
     void Start()
     {
@@ -104,7 +109,9 @@ public class Player : MonoBehaviour
                 {
                     interactText.gameObject.SetActive(false);
                     dialogEndText.gameObject.SetActive(true);
-                    //call method to put parts back
+                    friendArm.gameObject.SetActive(true);
+                    friendWheel.gameObject.SetActive(true);
+                    friendEye.gameObject.SetActive(true);
                     hasWon = true;
                 }
 
@@ -185,17 +192,17 @@ public class Player : MonoBehaviour
         if(collision.tag == "eyeCollectable")
         {
             Destroy(collision.gameObject);
-            parts++;
+            parts += 1;
         }
         else if(collision.tag == "armCollectable")
         {
             Destroy(collision.gameObject);
-            parts++;
+            parts += 1;
         }
         else if(collision.tag == "wheelCollectable")
         {
             Destroy(collision.gameObject);
-            parts++;
+            parts += 1;
         }
     }
 }
