@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
+
 
 public class Player : MonoBehaviour
 {
@@ -23,9 +25,7 @@ public class Player : MonoBehaviour
     public TMP_Text dialogThreeText;
     public TMP_Text dialogEndText;
 
-
     public TMP_Text partsText;
-    
 
     private bool talkedToFriend;
 
@@ -42,8 +42,6 @@ public class Player : MonoBehaviour
     public GameObject friendArm;
     public GameObject friendWheel;
     public GameObject friendEye;
-
-
 
 
     void Start()
@@ -215,6 +213,10 @@ public class Player : MonoBehaviour
         {
             Destroy(collision.gameObject);
             parts += 1;
+        }
+        else if(collision.tag == "enemy")
+        {
+            SceneManager.LoadScene(0);
         }
     }
 }
