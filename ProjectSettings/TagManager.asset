@@ -9,6 +9,9 @@ TagManager:
   - friend
   - enemy
   - playerBullet
+  - eyeCollectable
+  - armCollectable
+  - wheelCollectable
   layers:
   - Default
   - TransparentFX

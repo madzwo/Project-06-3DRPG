@@ -20,8 +20,11 @@ public class Player : MonoBehaviour
     public TMP_Text dialogOneText;
     public TMP_Text dialogTwoText;
     public TMP_Text dialogThreeText;
+    public TMP_Text dialogEndText;
+
 
     public TMP_Text partsText;
+    
 
     private bool talkedToFriend;
 
@@ -30,6 +33,10 @@ public class Player : MonoBehaviour
     public float bulletSpeed;
     public float fireRate;
     private float timeTillFire;
+
+    public int parts;
+
+    private bool hasWon;
 
 
     void Start()
@@ -40,6 +47,8 @@ public class Player : MonoBehaviour
         dialogNumber = 1;
         talkedToFriend = false;
         timeTillFire = fireRate;
+        parts = 0;
+        hasWon = false;
     }
 
     void Update()
@@ -88,39 +97,47 @@ public class Player : MonoBehaviour
             if (isInteracting)
             {
                 Vector3 direction = transform.position - friend.transform.position;
-                if (direction != Vector3.zero)
-                {
-                    friend.transform.rotation = Quaternion.LookRotation(direction);
-                }
+                friend.transform.rotation = Quaternion.LookRotation(direction);
 
-                if(Input.GetKeyDown(KeyCode.F))
-                {
-                    dialogNumber++;
-                }
-                if(dialogNumber == 1)
+                if(parts == 3)
                 {
                     interactText.gameObject.SetActive(false);
-                    dialogOneText.gameObject.SetActive(true);
+                    dialogEndText.gameObject.SetActive(true);
+                    //call method to put parts back
+                    hasWon = true;
                 }
-                if(dialogNumber == 2)
+
+                else
                 {
-                    dialogOneText.gameObject.SetActive(false);
-                    dialogTwoText.gameObject.SetActive(true);
-                }
-                if(dialogNumber == 3)
-                {
-                    dialogTwoText.gameObject.SetActive(false);
-                    dialogThreeText.gameObject.SetActive(true);
-                }
-                if(dialogNumber == 4)
-                {
-                    dialogThreeText.gameObject.SetActive(false);
-                }
-                if(dialogNumber == 5)
-                {
-                    isInteracting = false;
-                    dialogNumber = 1;
-                    talkedToFriend = true;
+                    if(Input.GetKeyDown(KeyCode.F))
+                    {
+                        dialogNumber++;
+                    }
+                    if(dialogNumber == 1)
+                    {
+                        interactText.gameObject.SetActive(false);
+                        dialogOneText.gameObject.SetActive(true);
+                    }
+                    if(dialogNumber == 2)
+                    {
+                        dialogOneText.gameObject.SetActive(false);
+                        dialogTwoText.gameObject.SetActive(true);
+                    }
+                    if(dialogNumber == 3)
+                    {
+                        dialogTwoText.gameObject.SetActive(false);
+                        dialogThreeText.gameObject.SetActive(true);
+                    }
+                    if(dialogNumber == 4)
+                    {
+                        dialogThreeText.gameObject.SetActive(false);
+                        talkedToFriend = true;
+                    }
+                    if(dialogNumber == 5)
+                    {
+                        isInteracting = false;
+                        dialogNumber = 1;
+                    }
                 }
             }
             else 
@@ -139,8 +156,9 @@ public class Player : MonoBehaviour
             dialogOneText.gameObject.SetActive(false);
             dialogTwoText.gameObject.SetActive(false);
             dialogThreeText.gameObject.SetActive(false);
+            dialogEndText.gameObject.SetActive(false);
             dialogNumber = 1;
-            if (talkedToFriend)
+            if ((talkedToFriend) && (!hasWon))
             {
                 partsText.gameObject.SetActive(true);
             }
@@ -159,6 +177,24 @@ public class Player : MonoBehaviour
             }
         }
         timeTillFire -= Time.deltaTime;
-         
+    }
+
+    public void OnTriggerEnter(Collider collision)
+    {
+        if(collision.tag == "eyeCollectable")
+        {
+            Destroy(collision.gameObject);
+            parts++;
+        }
+        else if(collision.tag == "armCollectable")
+        {
+            Destroy(collision.gameObject);
+            parts++;
+        }
+        else if(collision.tag == "wheelCollectable")
+        {
+            Destroy(collision.gameObject);
+            parts++;
+        }
     }
 }
