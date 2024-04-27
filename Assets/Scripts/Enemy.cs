@@ -6,6 +6,7 @@ public class Enemy : MonoBehaviour
 {    
     public float speed;
     public Rigidbody rb;
+    private bool hasRotated = false;
 
     void Start()
     {
@@ -18,11 +19,17 @@ public class Enemy : MonoBehaviour
         rb.AddForce(vel, ForceMode.Force);
     }
 
-    public void OnCollisionEnter(Collision collision)
+    public void OnTriggerEnter(Collider collision)
     {
-        if (collision.gameObject.tag == "turn")
+        if (!hasRotated && collision.gameObject.CompareTag("turn"))
         {
-            Debug.Log("turn");
+            Debug.Log("Turn");
+            transform.Rotate(0, 90, 0);
+            hasRotated = true;
+        }
+        if (collision.gameObject.CompareTag("strait"))
+        {
+            hasRotated = false;
         }
     }
 }

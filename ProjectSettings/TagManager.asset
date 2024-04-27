@@ -13,6 +13,7 @@ TagManager:
   - armCollectable
   - wheelCollectable
   - turn
+  - strait
   layers:
   - Default
   - TransparentFX
