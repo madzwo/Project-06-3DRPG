@@ -55,6 +55,7 @@ public class Player : MonoBehaviour
     {
         Movement();       
         Fire();
+        partsText.text = "Parts:\n" + parts + " / 3";
     }
 
     public void Movement()
