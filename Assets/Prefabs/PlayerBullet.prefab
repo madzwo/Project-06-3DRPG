@@ -148,3 +148,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletExplode: {fileID: 5642421132904369071, guid: 483dab266cd914bcaa3804e9e414d89e,
     type: 3}
+  enemyExplode: {fileID: 5642421132904369071, guid: 6e7f9c4ad4ffd40a1befc455492c7444,
+    type: 3}
