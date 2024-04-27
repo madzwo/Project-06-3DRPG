@@ -8,6 +8,12 @@ public class Enemy : MonoBehaviour
     public Rigidbody rb;
     private bool hasRotated = false;
 
+    public GameObject bulletPrefab;
+    public Transform firePoint;
+    public float bulletSpeed;
+    public float fireRate;
+    private float timeTillFire;
+
     void Start()
     {
         
@@ -17,6 +23,14 @@ public class Enemy : MonoBehaviour
     {
         Vector3 vel = transform.forward * speed - rb.velocity;
         rb.AddForce(vel, ForceMode.Force);
+        
+        if(timeTillFire <= 0)
+        {
+            GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+            bullet.GetComponent<Rigidbody>().AddForce(firePoint.forward * bulletSpeed, ForceMode.Force);
+            timeTillFire = fireRate;
+        }
+        timeTillFire -= Time.deltaTime;
     }
 
     public void OnTriggerEnter(Collider collision)

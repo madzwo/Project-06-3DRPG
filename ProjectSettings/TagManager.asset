@@ -15,6 +15,7 @@ TagManager:
   - turn
   - strait
   - obstacle
+  - enemyBullet
   layers:
   - Default
   - TransparentFX

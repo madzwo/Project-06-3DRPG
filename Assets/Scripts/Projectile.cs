@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 public class Projectile : MonoBehaviour
 {
@@ -14,12 +16,22 @@ public class Projectile : MonoBehaviour
             Instantiate(bulletExplode, transform.position, transform.rotation);
             Destroy(gameObject);
         }
-        if(collision.tag == "enemy")
+        if(gameObject.tag == "playerBullet")
         {
-            Instantiate(bulletExplode, transform.position, transform.rotation);
-            Instantiate(enemyExplode, transform.position, transform.rotation);
-            Destroy(collision.gameObject);
-            Destroy(gameObject);
+            if(collision.tag == "enemy")
+            {
+                Instantiate(bulletExplode, transform.position, transform.rotation);
+                Instantiate(enemyExplode, transform.position, transform.rotation);
+                Destroy(collision.gameObject);
+                Destroy(gameObject);
+            }
+        }
+        else if(gameObject.tag == "enemyBullet")
+        {
+            if(collision.tag == "player")
+            {
+                SceneManager.LoadScene(0);
+            }
         }
     }
 }
