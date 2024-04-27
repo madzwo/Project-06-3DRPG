@@ -8,6 +8,7 @@ public class Player : MonoBehaviour
     Rigidbody rb;
     Vector3 moveDirection;
     public float moveSpeed;
+    public float boostSpeed;
     public float turnSpeed;
     private bool isMoving;
 
@@ -44,6 +45,7 @@ public class Player : MonoBehaviour
 
 
 
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -65,15 +67,25 @@ public class Player : MonoBehaviour
 
     public void Movement()
     {
+        float speed;
+        if(Input.GetKey(KeyCode.LeftShift))
+        {
+            speed = boostSpeed;
+        }
+        else
+        {
+            speed = moveSpeed;
+        }
+
         if(Input.GetKey(KeyCode.W))
         {
-            Vector3 moveDirection = transform.forward * moveSpeed;
+            Vector3 moveDirection = transform.forward * speed;
             rb.AddForce(moveDirection);
             isMoving = true;
         }
         else if(Input.GetKey(KeyCode.S))
         {
-            Vector3 moveDirection = -transform.forward * (moveSpeed * 0.6f);
+            Vector3 moveDirection = -transform.forward * (speed * 0.6f);
             rb.AddForce(moveDirection);
             isMoving = true;
         } 

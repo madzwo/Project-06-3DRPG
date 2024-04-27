@@ -23,8 +23,6 @@ public class Enemy : MonoBehaviour
         if (collision.gameObject.tag == "turn")
         {
             Debug.Log("turn");
-            Quaternion newRotation = Quaternion.Euler(0f, -90f, 0f);
-            transform.rotation = newRotation;
         }
     }
 }

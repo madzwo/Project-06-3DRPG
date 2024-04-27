@@ -759,7 +759,7 @@ PrefabInstance:
     - target: {fileID: 3487894004248249910, guid: 4c1de9114cc1f4349a8f2a7922bfe909,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -15
+      value: -20
       objectReference: {fileID: 0}
     - target: {fileID: 3487894004248249910, guid: 4c1de9114cc1f4349a8f2a7922bfe909,
         type: 3}
@@ -1855,7 +1855,7 @@ PrefabInstance:
     - target: {fileID: 3487894004248249910, guid: 4c1de9114cc1f4349a8f2a7922bfe909,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -15
+      value: -20
       objectReference: {fileID: 0}
     - target: {fileID: 3487894004248249910, guid: 4c1de9114cc1f4349a8f2a7922bfe909,
         type: 3}
@@ -2406,7 +2406,7 @@ PrefabInstance:
     - target: {fileID: 3487894004248249910, guid: 4c1de9114cc1f4349a8f2a7922bfe909,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 15
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 3487894004248249910, guid: 4c1de9114cc1f4349a8f2a7922bfe909,
         type: 3}
@@ -3018,7 +3018,7 @@ PrefabInstance:
     - target: {fileID: 3487894004248249910, guid: 4c1de9114cc1f4349a8f2a7922bfe909,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 15
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 3487894004248249910, guid: 4c1de9114cc1f4349a8f2a7922bfe909,
         type: 3}
@@ -3563,7 +3563,7 @@ PrefabInstance:
     - target: {fileID: 4317382389117647952, guid: b4c9c55d6eafd4f0dae05bfaafab43dd,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -30.9
+      value: -31.9
       objectReference: {fileID: 0}
     - target: {fileID: 4317382389117647952, guid: b4c9c55d6eafd4f0dae05bfaafab43dd,
         type: 3}
@@ -3573,7 +3573,7 @@ PrefabInstance:
     - target: {fileID: 4317382389117647952, guid: b4c9c55d6eafd4f0dae05bfaafab43dd,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -72.3
+      value: -66.9
       objectReference: {fileID: 0}
     - target: {fileID: 4317382389117647952, guid: b4c9c55d6eafd4f0dae05bfaafab43dd,
         type: 3}
@@ -3693,6 +3693,11 @@ PrefabInstance:
       propertyPath: friendEye
       value: 
       objectReference: {fileID: 867685693}
+    - target: {fileID: 6383657746725768850, guid: b3e0e5186daec4b28b0e3176d6c7199f,
+        type: 3}
+      propertyPath: boostSpeed
+      value: 35
+      objectReference: {fileID: 0}
     - target: {fileID: 6383657746725768850, guid: b3e0e5186daec4b28b0e3176d6c7199f,
         type: 3}
       propertyPath: friendWheel
