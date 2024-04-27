@@ -12,6 +12,7 @@ TagManager:
   - eyeCollectable
   - armCollectable
   - wheelCollectable
+  - turn
   layers:
   - Default
   - TransparentFX
