@@ -115,6 +115,9 @@ public class Player : MonoBehaviour
                 if(dialogNumber == 4)
                 {
                     dialogThreeText.gameObject.SetActive(false);
+                }
+                if(dialogNumber == 5)
+                {
                     isInteracting = false;
                     dialogNumber = 1;
                     talkedToFriend = true;
