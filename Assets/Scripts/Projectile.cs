@@ -8,7 +8,7 @@ public class Projectile : MonoBehaviour
 
     public void OnTriggerEnter(Collider collision)
     {
-        if(collision.tag != "player")
+        if(collision.tag == "enemy" || collision.tag == "obstacle")
         {
             Instantiate(bulletExplode, transform.position, transform.rotation);
             Destroy(gameObject);
